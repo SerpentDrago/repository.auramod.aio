@@ -1,0 +1,3 @@
+[submodule "repo/matrix/"]
+	path = repo/matrix/
+	url = https://github.com/SerpentDrago/skin.auramod/tree/Matrix
