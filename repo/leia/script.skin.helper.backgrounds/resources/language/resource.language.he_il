@@ -1,0 +1,209 @@
+# Kodi language file
+# Addon Name: Skin Helper Backgrounds
+# Addon id: script.skin.helper.backgrounds
+# Addon Provider: marcelveldt
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC-Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: 2014-10-26 17:05+0000\n"
+"PO-Revision-Date: 2017-10-18 12:23+0300\n"
+"Last-Translator: A. Dambledore\n"
+"Language-Team: Eng2Heb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he_IL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#32000"
+msgid "Backgrounds"
+msgstr "רקעים"
+
+msgctxt "#32001"
+msgid "Wall Backgrounds"
+msgstr "קיר רקעים"
+
+msgctxt "#32002"
+msgid "Interval in seconds for rotating backgrounds (0 to disable)"
+msgstr "מרווח זמן בשניות עבור סיבוב רקעים (0 כדי לבטל)"
+
+msgctxt "#32003"
+msgid "Interval in seconds for rotating wall images (0 to disable)"
+msgstr "מרווח זמן בשניות עבור סיבוב ,תמונות קיר (0 כדי לבטל)"
+
+msgctxt "#32004"
+msgid "Only use images from recordings for random PVR background"
+msgstr "תשתמש רק בתמונות מהקלטות עבור רקע PVR אקראי"
+
+msgctxt "#32005"
+msgid "Use custom path for random pictures background"
+msgstr "תשתמש בנתיב מותאם אישית עבור רקע תמונות אקראיות"
+
+msgctxt "#32006"
+msgid "Custom path:"
+msgstr "נתיב מותאם אישית:"
+
+msgctxt "#32007"
+msgid "Maximum number of wall images to create for each background"
+msgstr "המספר המרבי של תמונות קיר ליצור עבור כל רקע"
+
+msgctxt "#32008"
+msgid "Clear cache (rebuild all wall images)"
+msgstr "נקה זיכרון מטמון (לבנות מחדש את כל תמונות הקיר)"
+
+msgctxt "#32009"
+msgid "Global media fanart background"
+msgstr "רקע פאנארט מדיה גלובלי"
+
+msgctxt "#32010"
+msgid "Random movies background"
+msgstr "רקע מסרטים אקראיים"
+
+msgctxt "#32011"
+msgid "Recent movies background"
+msgstr "רקע מסרטים אחרונים"
+
+msgctxt "#32012"
+msgid "In progress movies background"
+msgstr "רקע מסרטים התקדמות"
+
+msgctxt "#32013"
+msgid "Unwatched movies background"
+msgstr "רקע מסרטים שלא נצפו"
+
+msgctxt "#32014"
+msgid "Random Tv Shows background"
+msgstr "רקע מסדרות אקראיות"
+
+msgctxt "#32015"
+msgid "Recent episodes background"
+msgstr "רקע מפרקים אחרונים"
+
+msgctxt "#32016"
+msgid "In progress Tv Shows background"
+msgstr "רקע מסדרות בתהליך"
+
+msgctxt "#32017"
+msgid "Random pictures background"
+msgstr "רקע מתמונות אקראיות"
+
+msgctxt "#32018"
+msgid "Random music videos background"
+msgstr "רקע מסרטוני מוזיקה אקראיים"
+
+msgctxt "#32019"
+msgid "Random music artists background"
+msgstr "רקע מאמני המוזיקה אקראיים"
+
+msgctxt "#32020"
+msgid "Top rated Movies (extendedinfo)"
+msgstr "‎רקע מסרטים בדירוג גבוה"
+
+msgctxt "#32021"
+msgid "Top Rated tvshows (extendedinfo)"
+msgstr "רקע מסדרות בדירוג גבוה"
+
+msgctxt "#32022"
+msgid "Random songs background"
+msgstr "רקע אקראי משירים אקראיים"
+
+msgctxt "#32023"
+msgid "Recent albums background"
+msgstr "רקע מהאלבומים האחרונים"
+
+msgctxt "#32024"
+msgid "Random PVR background"
+msgstr "רקע אקראי מ-PVR"
+
+msgctxt "#32025"
+msgid "Global videos background"
+msgstr "רקע מסרטי וידאו כלליים"
+
+msgctxt "#32026"
+msgid "Global Movies & TvShows background"
+msgstr "רקע מסרטים כללים וסדרות"
+
+msgctxt "#32027"
+msgid "Recent videos background"
+msgstr "רקע מסרטי וידאו אחרונים"
+
+msgctxt "#32028"
+msgid "In-progress videos background"
+msgstr "רקע מווידאו בתהליך"
+
+msgctxt "#32029"
+msgid "Wall"
+msgstr "קיר"
+
+msgctxt "#32030"
+msgid "Poster Wall"
+msgstr "קיר פוסטרים"
+
+msgctxt "#32031"
+msgid "Black & White"
+msgstr "שחור לבן"
+
+msgctxt "#32032"
+msgid "Error while writing changes. Make sure you have filled in all fields correctly."
+msgstr "שגיאה בעת כתיבת שינויים. ודא שמילאת את כל השדות כראוי."
+
+msgctxt "#32058"
+msgid "Please enter a name for your conditional background"
+msgstr "אנא הזן שם עבור הרקע המותנה"
+
+msgctxt "#32061"
+msgid "Please select a background image"
+msgstr "נא לבחור את תמונת הרקע"
+
+msgctxt "#32064"
+msgid "Do you want to setup a single background or a folder with multiple backgrounds ?"
+msgstr "האם ברצונך להגדיר רקע יחיד או תיקיה עם תמונות רקע מרובות?"
+
+msgctxt "#32065"
+msgid "Single"
+msgstr "יחיד"
+
+msgctxt "#32066"
+msgid "Multiple"
+msgstr "בחירה מרובה"
+
+msgctxt "#32067"
+msgid "Select image folder path"
+msgstr "בחר נתיב תיקיה לתמונות"
+
+msgctxt "#32070"
+msgid "Conditional backgrounds"
+msgstr "רקעים מותנים"
+
+msgctxt "#32071"
+msgid "Configure conditional backgrounds"
+msgstr "קביעת תצורה של רקעים מותנים"
+
+msgctxt "#32072"
+msgid "Setup backgrounds that will be activated on specified dates"
+msgstr "הגדר תמונות רקע שיופעלו בתאריכים שצוינו"
+
+msgctxt "#32073"
+msgid "Add new condition..."
+msgstr "הוסף תנאי חדש..."
+
+msgctxt "#32074"
+msgid "Add a new condition to activate a custom background on a selected timespan"
+msgstr "הוסף תנאי חדש להפעלת רקע מותאם אישית בסרגל זמן נבחר"
+
+msgctxt "#32075"
+msgid "Delete or change ?"
+msgstr "למחוק או לשנות?"
+
+msgctxt "#32076"
+msgid "Do you want to delete or change the existing entry ?"
+msgstr "האם ברצונך למחוק או לשנות את הערך הקיים?"
+
+msgctxt "#32077"
+msgid "Change"
+msgstr "שנה"
+
+msgctxt "#32078"
+msgid "Delete"
+msgstr "מחק"

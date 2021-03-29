@@ -1,0 +1,5 @@
+v1.0.1
+- Rename context menu item
+
+v1.0.0
+- Initial release

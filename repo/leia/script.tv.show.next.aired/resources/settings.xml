@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<setting id="TodayStyle" type="bool" label="32016" default="False"/>
+	<setting id="WantYesterday" type="bool" label="32017" subsetting="true" default="False" visible="eq(-1,true)"/>
+	<setting id="ScanDays" type="labelenum" label="32015" values="7|14" default="7" visible="eq(-2,false)"/>
+	<setting id="ScanDays2" type="labelenum" label="32015" values="7|8|9|10|11|12|13|14|15" default="15" visible="eq(-3,true)"/>
+	<setting id="ShowAllTVShowsOnHome" type="bool" label="32013" default="False"/>
+	<setting id="ImproveDates" type="bool" label="32014" default="False"/>
+	<setting type="sep"/>
+	<setting id="Update" type="action" label="32007" action="RunScript(script.tv.show.next.aired,force=True)"/>
+	<setting id="Reset" type="action" label="32012" action="RunScript(script.tv.show.next.aired,reset=True)"/>
+</settings>

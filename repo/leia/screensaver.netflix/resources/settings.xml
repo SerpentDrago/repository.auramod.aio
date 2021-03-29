@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="General">
+        <setting type="action" id="screensaver.netflix.name" label="Choose path to use" option="close" action="RunScript(screensaver.netflix, mode=choose)" />
+        <setting type="text" id="screensaver.netflix.path" visible="false" />
+    </category>
+</settings>
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <defaultcontrol always="true">1297</defaultcontrol>
+    <controls>
+        <control type="image">
+            <texture>background.png</texture>
+        </control>
+        
+        <control type="list" id="1297">
+            <content sortby="random">$INFO[Skin.String(screensaver.netflix.path)]</content>
+            <autoscroll time="20000">true</autoscroll>
+            <orientation>horizontal</orientation>
+            <itemlayout />
+            <focusedlayout />
+        </control>
+        
+        <control type="image">
+            <fadetime>800</fadetime>
+            <animation effect="slide" start="-32,0" end="48,0" time="20000" tween="sine" easing="inout" pulse="true" condition="true">Conditional</animation>
+            <width>2304</width>
+            <height>1296</height>
+            <left>-192</left>
+            <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+        </control>
+
+        <control type="image" id="1298">
+            <fadetime>800</fadetime>
+            <width>1280</width>
+            <height>1280</height>
+            <top>192</top>
+            <texture>$INFO[ListItem.Art(characterart)]</texture>
+        </control>
+        
+        <control type="image">
+            <fadetime>800</fadetime>
+            <width>800</width>
+            <height>310</height>
+            <bottom>32</bottom>
+            <left>32</left>
+            <animation effect="slide" start="0,0" end="1056,0" time="20000" tween="sine" easing="inout" pulse="true" condition="true">Conditional</animation>
+            <texture>$INFO[ListItem.Art(clearlogo)]</texture>
+        </control>
+    </controls>
+</window>
