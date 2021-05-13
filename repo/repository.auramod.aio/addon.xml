@@ -17,6 +17,10 @@
 		<summary>Auramod All In One Kodi Repo</summary>
 		<description>Auramod Repo Contianing SerpentDrago's versions of Auramod for both Kodi Leia and Matrix </description>
 		<platform>all</platform>
+        <assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
 	</extension>
 </addon>
 </addons>
