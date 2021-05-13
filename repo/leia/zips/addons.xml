@@ -21,7 +21,6 @@
   </extension>
 </addon>
 
-<addons>
 <addon id="repository.auramod.aio" name="Auramod Repo AIO" version="1.0" provider-name="SerpentDrago">
 	<extension point="xbmc.addon.repository" name="Auramod Repo AIO">
 		<dir minversion="18.0" maxversion="18.9.9">
@@ -45,7 +44,6 @@
 		</assets>
 	</extension>
 </addon>
-</addons>
 
 <addon id="repository.jurialmunkey" name="jurialmunkey Alpha Repository" version="2.0" provider-name="jurialmunkey">
     <extension point="xbmc.addon.repository" name="jurialmunkey Alpha Repository">
