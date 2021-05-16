@@ -1,3 +1,3 @@
 repository.auramod.aio
 
-Work In progress , Do not use yet !
+Alpha, will be added to auramod offical instructions and kodi file source soon 
