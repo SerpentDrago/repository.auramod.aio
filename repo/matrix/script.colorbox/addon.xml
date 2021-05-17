@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.colorbox" name="colorbox Script" version="2.0.7" provider-name="BADMS">
+<addon id="script.colorbox" name="colorbox Script" version="2.0.8" provider-name="BADMS, drinfernoo">
 	<requires>
-		<import addon="xbmc.python" version="2.25.0"/>
-		<import addon="script.module.simplejson" version="2.0.10"/>
-		<import addon="script.module.pil" version="1.1.7"/>
+		<import addon="script.module.pil"/>
 	</requires>
     <extension point="xbmc.python.script" library="default.py">
         <provides>executable</provides>

@@ -1,17 +1,21 @@
 import os, sys, re
 import xbmc
 import xbmcgui
+import xbmcplugin
 import xbmcaddon
 import xbmcvfs
 from threading import Thread
+from functools import reduce
+
+from resources.lib import Utils
 ADDON =             xbmcaddon.Addon()
 ADDON_VERSION =     ADDON.getAddonInfo('version')
 ADDON_LANGUAGE =    ADDON.getLocalizedString
-ADDON_PATH =        ADDON.getAddonInfo('path').decode("utf-8")
+ADDON_PATH =        ADDON.getAddonInfo('path')
 ADDON_ID =          ADDON.getAddonInfo('id')
-ADDON_DATA_PATH =   os.path.join(xbmc.translatePath("special://profile/addon_data/%s" % ADDON_ID))
+ADDON_DATA_PATH =   os.path.join(Utils.translatePath("special://profile/addon_data/%s" % ADDON_ID))
 HOME =              xbmcgui.Window(10000)
-from resources.lib import Utils
+
 ColorBox_settings_map = {
         'pixelsize':    Utils.set_pixelsize,
         'bitsize':      Utils.set_bitsize,
@@ -44,15 +48,15 @@ class ColorBoxMain:
             self.label_now_TWO = xbmc.getInfoLabel("Control.GetLabel(7972)")
             if (self.label_now_TWO != self.label_prev_TWO):
                 self.label_prev_TWO = self.label_now_TWO
-                HOME.setProperty('LabelFilterTWO', re.sub('\s+',' ',reduce(lambda CBX_a, CBX_kv: CBX_a.replace(*CBX_kv), ColorBox_strip, self.label_now_TWO).strip()))
+                HOME.setProperty('LabelFilterTWO', re.sub(r'\s+',' ',reduce(lambda CBX_a, CBX_kv: CBX_a.replace(*CBX_kv), ColorBox_strip, self.label_now_TWO).strip()))
             self.label_now_THREE = xbmc.getInfoLabel("Control.GetLabel(7973)")
             if (self.label_now_THREE != self.label_prev_THREE):
                 self.label_prev_THREE = self.label_now_THREE
-                HOME.setProperty('LabelFilterTHREE', re.sub('\s+',' ',reduce(lambda CBX_a, CBX_kv: CBX_a.replace(*CBX_kv), ColorBox_strip, self.label_now_THREE).strip()))
+                HOME.setProperty('LabelFilterTHREE', re.sub(r'\s+',' ',reduce(lambda CBX_a, CBX_kv: CBX_a.replace(*CBX_kv), ColorBox_strip, self.label_now_THREE).strip()))
             self.label_now_FOUR = xbmc.getInfoLabel("Control.GetLabel(7974)")
             if (self.label_now_FOUR != self.label_prev_FOUR):
                 self.label_prev_FOUR = self.label_now_FOUR
-                HOME.setProperty('LabelFilterFOUR', re.sub('\s+',' ',reduce(lambda CBX_a, CBX_kv: CBX_a.replace(*CBX_kv), ColorBox_strip, self.label_now_FOUR).strip()))
+                HOME.setProperty('LabelFilterFOUR', re.sub(r'\s+',' ',reduce(lambda CBX_a, CBX_kv: CBX_a.replace(*CBX_kv), ColorBox_strip, self.label_now_FOUR).strip()))
             FIVE_daemon_set = HOME.getProperty("FIVE_daemon_set")
             if not FIVE_daemon_set == '':
                 self.image_now_FIVE = xbmc.getInfoLabel("Control.GetLabel(7975)")

@@ -4,13 +4,21 @@ import xbmcgui
 import xbmcvfs
 import xbmcplugin
 import os, sys
-import simplejson
+import json
 import hashlib
-import urllib
+try:
+    from urllib import unquote
+except:
+    from urllib.parse import unquote
+try:
+    translatePath = xbmcvfs.translatePath
+except:
+    translatePath = xbmc.translatePath
 import random
 import math
-from PIL import Image, ImageOps, ImageEnhance, ImageDraw, ImageStat, ImageFilter
-from ImageOperations import MyGaussianBlur
+from PIL import Image, ImageOps, ImageEnhance, ImageDraw, ImageStat, ImageFilter, ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+from resources.lib.ImageOperations import MyGaussianBlur
 from decimal import *
 from xml.dom.minidom import parse
 from threading import Thread
@@ -19,7 +27,7 @@ from collections import deque
 ADDON =             xbmcaddon.Addon()
 ADDON_ID =          ADDON.getAddonInfo('id')
 ADDON_LANGUAGE =    ADDON.getLocalizedString
-ADDON_DATA_PATH =   os.path.join(xbmc.translatePath("special://profile/addon_data/%s" % ADDON_ID))
+ADDON_DATA_PATH =   os.path.join(translatePath("special://profile/addon_data/%s" % ADDON_ID))
 ADDON_COLORS =      os.path.join(ADDON_DATA_PATH, "colors.db")
 #ADDON_SETTINGS =    os.path.join(ADDON_DATA_PATH, "settings.")
 image_formats =     ['.jpg', '.jpeg', '.png', '.tif', '.bmp', 'gif', 'tiff']
@@ -88,14 +96,14 @@ def fnsharpness(): return str(sharp) + str(quality)
 def fnsplicer(): return str(min_stripes) + str(max_stripes) + str(orientation) + str(quality)
 def ColorBox_go_map(filterimage, imageops, gqual=0):
     if gqual == 0: gqual = quality
-    filename = hashlib.md5(filterimage).hexdigest() + str(blend) + '-'
+    filename = hashlib.md5(filterimage.encode('utf-8')).hexdigest() + str(blend) + '-'
     for cmarg in imageops.strip().split('-'):
         filename = filename + cmarg + ColorBox_filename_map[cmarg]()
     targetfile = os.path.join(ADDON_DATA_PATH, filename + '.png')
     Cache = Check_XBMC_Cache(targetfile)
     if Cache != "": return Cache
     Img = Check_XBMC_Internal(targetfile, filterimage)
-    if not Img: return
+    if not Img or not os.path.exists(Img): return
     try:
         img = Image.open(Img)
     except Exception as e:
@@ -114,7 +122,7 @@ def ColorBox_go_map(filterimage, imageops, gqual=0):
             orwidth, orheight = imgor.size
             width, height = img.size
             if width != orwidth or height != orheight:
-                img = img.resize((orwidth, orheight), Image.ANTIALIAS)
+                img = img.resize((int(orwidth), int(orheight)), Image.ANTIALIAS)
             img = Image.blend(imgor, img, blend)
         img.save(targetfile)
         return targetfile
@@ -160,15 +168,15 @@ def set_main(new_value):
     xbmc.executebuiltin('Skin.SetString(colorbox_main,'+str(new_value)+')')
 def set_desat(new_value):
     global desat
-    desat = int(new_value) / 100.0
+    desat = float(new_value) / 100.0
     xbmc.executebuiltin('Skin.SetString(colorbox_desat,'+str(new_value)+')')
 def set_sharp(new_value):
     global sharp
-    sharp = int(new_value) / 100.0
+    sharp = float(new_value) / 100.0
     xbmc.executebuiltin('Skin.SetString(colorbox_sharp,'+str(new_value)+')')
 def set_blend(new_value):
     global blend
-    blend = int(new_value) / 100.0
+    blend = float(new_value) / 1.0
     xbmc.executebuiltin('Skin.SetString(colorbox_blend,'+str(new_value)+')')
 def dataglitch(img):
     return Dataglitch_Image(img)
@@ -189,7 +197,7 @@ def pixelate(img):
 def splicer(images_path):
     images_path = xbmc.getInfoLabel('ListItem.Path')
     images = get_all_images_from_the_input_dir(images_path)
-    return Splice_Images(images, MIN_STRIPES, MAX_STRIPES, orientation=ORIENTATION)
+    return Splice_Images(images, min_stripes, max_stripes, orientation=orientation)
 def shiftblock(img):
     qiterations = iterations / quality    
     return Shiftblock_Image(img, blocksize, sigma, qiterations)
@@ -254,7 +262,7 @@ def Dataglitch_Image(img, channel='r'):
 def Shiftblock_Image(image, blocksize=64, sigma=1.05, iterations=300):
     seed = random.random()
     r = random.Random(seed)
-    for i in xrange(iterations):
+    for i in range(iterations):
         bx = int(r.uniform(0, image.size[0]-blocksize))
         by = int(r.uniform(0, image.size[1]-blocksize))
         block = image.crop((bx, by, bx+blocksize-1, by+blocksize-1))
@@ -418,12 +426,12 @@ def anglegcr(img, percentage):
         return cmyk_im
     cmyk_im = cmyk_im.split()
     cmyk = []
-    for i in xrange(4):
+    for i in range(4):
         cmyk.append(cmyk_im[i].load())
-    for x in xrange(img.size[0]):
-        for y in xrange(img.size[1]):
+    for x in range(img.size[0]):
+        for y in range(img.size[1]):
             gray = min(cmyk[0][x,y], cmyk[1][x,y], cmyk[2][x,y]) * percentage / 100
-            for i in xrange(3):
+            for i in range(3):
                 cmyk[i][x,y] = cmyk[i][x,y] - gray
             cmyk[3][x,y] = gray
     return Image.merge('CMYK', cmyk_im)
@@ -435,8 +443,8 @@ def anglehalftone(img, cmyk, sample, scale, angles):
         size = channel.size[0]*scale, channel.size[1]*scale
         half_tone = Image.new('L', size)
         draw = ImageDraw.Draw(half_tone)
-        for x in xrange(0, channel.size[0], sample):
-            for y in xrange(0, channel.size[1], sample):
+        for x in range(0, channel.size[0], sample):
+            for y in range(0, channel.size[1], sample):
                 box = channel.crop((x, y, x + sample, y + sample))
                 stat = ImageStat.Stat(box)
                 diameter = (stat.mean[0] / 255)**0.5
@@ -625,8 +633,8 @@ def image_posterize(img, bits=1):
     return ImageOps.posterize(img, bits)
 def fake_light(img, tilesize=50):
     WIDTH, HEIGHT = img.size
-    for x in xrange(0, WIDTH, tilesize):
-        for y in xrange(0, HEIGHT, tilesize):
+    for x in range(0, WIDTH, tilesize):
+        for y in range(0, HEIGHT, tilesize):
             br = int(255 * (1 - x / float(WIDTH) * y / float(HEIGHT)))
             tile = Image.new('RGB', (tilesize, tilesize), (255,255,255,128))
             img.paste((br,br,br), (x, y, x + tilesize, y + tilesize), mask=tile)
@@ -690,7 +698,7 @@ def Show_Percentage():
     except:
         return
 def Color_Only(filterimage, cname, ccname, imagecolor='ff000000', cimagecolor='ffffffff'):
-    md5 = hashlib.md5(filterimage).hexdigest()
+    md5 = hashlib.md5(filterimage.encode('utf-8')).hexdigest()
     var3 = 'Old' + cname
     var4 = 'Old' + ccname
     if not colors_dict: Load_Colors_Dict()
@@ -698,7 +706,7 @@ def Color_Only(filterimage, cname, ccname, imagecolor='ff000000', cimagecolor='f
         filename = md5 + ".png"
         targetfile = os.path.join(ADDON_DATA_PATH, filename)
         Img = Check_XBMC_Internal(targetfile, filterimage)
-        if not Img: return
+        if not Img or not os.path.exists(Img): return
         try:
             img = Image.open(Img)
         except Exception as e:
@@ -891,7 +899,7 @@ def Get_Colors(img, md5):
             values = []
             for pixel in pixels:
                 values.append(pixel)
-            colour_tuple[channel] = clamp(sum(values) / len(values))
+            colour_tuple[channel] = int(clamp(sum(values) / len(values)))
         imagecolor = 'ff%02x%02x%02x' % tuple(colour_tuple)
         cimagecolor = Complementary_Color(imagecolor)
         Write_Colors_Dict(md5,imagecolor,cimagecolor)
@@ -904,13 +912,13 @@ def Check_XBMC_Internal(targetfile, filterimage):
     xbmc_cache_filep = os.path.join("special://profile/Thumbnails/", cachedthumb[0], cachedthumb[:-4] + ".jpg")
     xbmc_cache_filej = os.path.join("special://profile/Thumbnails/", cachedthumb[0], cachedthumb[:-4] + ".png")
     if xbmcvfs.exists(xbmc_cache_filej):
-        return xbmc.translatePath(xbmc_cache_filej)
+        return translatePath(xbmc_cache_filej)
     elif xbmcvfs.exists(xbmc_cache_filep):
-        return xbmc.translatePath(xbmc_cache_filep)
+        return translatePath(xbmc_cache_filep)
     elif xbmcvfs.exists(xbmc_vid_cache_file):
-        return xbmc.translatePath(xbmc_vid_cache_file)
+        return translatePath(xbmc_vid_cache_file)
     else:
-        filterimage = urllib.unquote(filterimage.replace("image://", "")).decode('utf8')
+        filterimage = unquote(filterimage.replace("image://", ""))
         if filterimage.endswith("/"):
             filterimage = filterimage[:-1]
         xbmcvfs.copy(filterimage, targetfile)
@@ -922,11 +930,11 @@ def Check_XBMC_Cache(targetfile):
     xbmc_cache_filep = os.path.join("special://profile/Thumbnails/", cachedthumb[0], cachedthumb[:-4] + ".jpg")
     xbmc_cache_filej = os.path.join("special://profile/Thumbnails/", cachedthumb[0], cachedthumb[:-4] + ".png")
     if xbmcvfs.exists(xbmc_cache_filej):
-        return xbmc.translatePath(xbmc_cache_filej)
+        return translatePath(xbmc_cache_filej)
     elif xbmcvfs.exists(xbmc_cache_filep):
-        return xbmc.translatePath(xbmc_cache_filep)
+        return translatePath(xbmc_cache_filep)
     elif xbmcvfs.exists(xbmc_vid_cache_file):
-        return xbmc.translatePath(xbmc_vid_cache_file)
+        return translatePath(xbmc_vid_cache_file)
     if xbmcvfs.exists(targetfile):
         return targetfile
     return ""
@@ -946,7 +954,7 @@ def Resize_Image(img, scale):
         qwidth += 1
     if qheight % 2 != 0:
         qheight += 1
-    return img.resize((qwidth, qheight), Image.ANTIALIAS)
+    return img.resize((int(qwidth), int(qheight)), Image.ANTIALIAS)
 def clamp(x):
     return max(0, min(x, 255))
 def Load_Colors_Dict():
@@ -965,12 +973,14 @@ def Write_Colors_Dict(md5,imagecolor,cimagecolor):
         for id, values in colors_dict.items():
             file.write(':'.join([id] + values.split(':')) + '\n')
 def log(txt):
-    if isinstance(txt, str):
-        txt = txt.decode("utf-8")
     message = u'%s: %s' % (ADDON_ID, txt)
-    xbmc.log(msg=message.encode("utf-8"), level=xbmc.LOGNOTICE)
+    try:
+        level = xbmc.LOGNOTICE
+    except:
+        level = xbmc.LOGINFO
+    xbmc.log(msg=message, level=level)
 def prettyprint(string):
-    log(simplejson.dumps(string, sort_keys=True, indent=4, separators=(',', ': ')))
+    log(json.dumps(string, sort_keys=True, indent=4, separators=(',', ': ')))
 ColorBox_filename_map = {
         'blur':         fnblur,
         'pixelate':     fnpixelate,
