@@ -103,7 +103,7 @@
 	</extension>
 </addon>
 
-<addon id="skin.auramod" version="1.0.11" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="skyfsza,inb4after,SerpentDrago">
+<addon id="skin.auramod" version="1.0.18" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="skyfsza,inb4after,SerpentDrago">
     <requires>
         <import addon="xbmc.gui" version="5.15.0"/>
         <import addon="script.skin.helper.service" version="1.1.24"/>
@@ -136,6 +136,27 @@
             <screenshot>resources/screenshot-05.jpg</screenshot>
         </assets>
         <news>
+            v1.0.17
+            -Fix multi-widget spotlight studio logo visibility on widget spotlights
+            -Add "Kod" an Italian addon for movies and tv series to default search items
+            v1.0.16
+            -Fix studio logos for Widget Spotlights
+            v1.0.15
+            -Improve Netflix Episode List view
+            -Add clearlogo
+            -Adjust progress bar position and size
+            -Round corners for progress bar
+            -Adjust season and episode label position
+            v1.0.14
+            -Fix actor thumbnails on multi-widget spotlights
+            -Fix studio logos for multi-widget spotlights
+            v1.0.13
+            -Fix studio logos for Aura Home
+            v1.0.12
+            -Fix studio logo duplicate ID
+            v1.0.11
+            -Repo Release
+            -Reworked addon.xml
             v1.0.10
             -Fix star rating visibility on "See More" widget items
             -addon.xml overhaul
