@@ -103,7 +103,7 @@
 	</extension>
 </addon>
 
-<addon id="skin.auramod" version="1.0.32" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="skyfsza,inb4after,SerpentDrago">
+<addon id="skin.auramod" version="1.1.4" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="skyfsza,inb4after,SerpentDrago">
     <requires>
         <import addon="xbmc.gui" version="5.15.0"/>
         <import addon="script.skin.helper.service" version="1.1.24"/>
@@ -136,6 +136,72 @@
             <screenshot>resources/screenshot-05.jpg</screenshot>
         </assets>
         <news>
+            v1.1.4
+            -Fix studio logo visibility while trailer is playing
+            v1.1.3
+            -Fix episode thumbnail spoilers
+            -Fix Kaito search path
+            v1.1.2
+            -Fix Aura Home spacing when weather header is enabled
+            v1.1.1
+            -Fix Aura Home horizontal menu layout
+            -Fix spotlight info and normal widget positions
+            -Fix Settings and Weather widget positions
+            -Fix home widget navigation with spotlights enabled
+            -Add conditional spacers for small category widget size
+            -Fix fullscreen spotlight widget positions
+            -Fix fullscreen spotlight button positions
+            -Add conditional spacers for fullscreen spotlight
+            -Add conditional spacers for widget spotlight
+            -Add conditional spacers for multi-widget spotlight
+            -Add conditional spacers for category widget size
+            v1.1.0
+            -Rework Aura Home layout
+            -Remove widget gap when category widget is disabled
+            -Fix focus skipping first widget when scrolling right from main menu to widgets
+            -Fix focus skipping first widget when scrolling down from multi-widget spotlight to widgets
+            -Improve spotlight current item indicators
+            -Fix first widget being cut-off
+            -Add conditional spacers
+            -Reposition multi-widget spotlight
+            -Reposition widget spotlight
+            -Fix disable aura home widget gap for new design
+            -Fix fullscreen spotlight button visibility when on first widget
+            -Fix fullscreen spotlight buttons inconsistencies
+            -Add invisible category widget to workaround grouplist usecontrolcoords
+            -Fix spotlight content being affected by normal widget focus
+            -Fix spotlight ratings being affected by normal widget focus
+            -Add hidden lists for spotlight content details
+            -Add gap for landscape widget style if spotlight is enabled
+            -Add autoscroll for widget spotlight plot
+            -Add autoscroll for multi-widget spotlight plot
+            -Fix autoscroll for multi-widget spotlight items
+            -Increase autoscroll timing for multi-widget spotlight items
+            -Increase multi-widget spotlight title width
+            -Fix multi-widget spotlight content being affected by normal widget focus
+            -Fix movies fullscreen spotlight disappearing on normal widget focus
+            -Add autoscroll for fullscreen spotlight plot
+            -Increase autoscroll timing for fullscreen spotlight items
+            -Fix Netflix Home widgets sliding down on fullscreen spotlight focus with category widget disabled
+            v1.0.36
+            -Localization rework
+            -Add localization for many skin labels
+            -Add new localized labels to all languages
+            -Add en_gb, nl_nl, pt_br strings.po
+            -Fix localization issues in all strings.po
+            -Fix TV show status being cut-off
+            -Fix LoveFilm view ratings being cut-off
+            -Fix episode airdate being cut-off
+            -Fix script.skinshortcuts header label being cut-off
+            -Fix RT critics consensus visibility
+            -Fix double end tag
+            -Fix colorbox advanced blur settings textbox position
+            v1.0.35
+            -Fix Netflix Home Info "jumping" when clearlogo missing for adjacent item
+            v1.0.34
+            -Add Netflix Info "More Episodes" button for TMDBHelper episodes
+            v1.0.33
+            -Fix script.artistslideshow update notice for MusicVisualisation.xml
             v1.0.32
             -Fix Netflix Info "Cast and More" clearlogo fallback text inconsistency
             -Fix Netflix Info "Cast and More" clearlogo fallback text ghosting
