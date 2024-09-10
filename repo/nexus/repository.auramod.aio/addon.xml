@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.auramod.aio" name="Auramod Repo AIO" version="1.0" provider-name="SerpentDrago">
+	<extension point="xbmc.addon.repository" name="Auramod Repo AIO">
+		<dir minversion="18.0" maxversion="18.9.9">
+			<info compressed="false">https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/leia/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/leia/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com//SerpentDrago/repository.auramod.aio/master/repo/leia/zips/</datadir>
+		</dir>
+		<dir minversion="19">
+			<info compressed="false">https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/matrix/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/matrix/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/matrix/zips/</datadir>
+		</dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Auramod All In One Kodi Repo</summary>
+		<description>Auramod Repo Contianing SerpentDrago's versions of Auramod for both Kodi Leia and Matrix </description>
+		<platform>all</platform>
+        <assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>

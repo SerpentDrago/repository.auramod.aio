@@ -4,3 +4,6 @@
 [submodule "repo/leia/skin.auramod"]
 	path = repo/leia/skin.auramod
 	url = https://github.com/SerpentDrago/skin.auramod
+[submodule "repo/nexus/skin.auramod"]
+	path = repo/nexus/skin.auramod
+	url = https://github.com/SerpentDrago/skin.auramod
