@@ -10,3 +10,7 @@
 	path = repo/nexus/skin.auramod
 	url = https://github.com/SerpentDrago/skin.auramod
 	branch = Nexus
+[submodule "repo/omega/skin.auramod"]
+	path = repo/omega/skin.auramod
+	url = https://github.com/SerpentDrago/skin.auramod
+	branch = Omega
