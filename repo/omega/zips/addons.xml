@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="repository.auramod.aio" name="Auramod Repo AIO" version="1.1" provider-name="SerpentDrago">
+<addon id="repository.auramod.aio" name="Auramod Repo AIO" version="1.2" provider-name="SerpentDrago">
 	<extension point="xbmc.addon.repository" name="Auramod Repo AIO">
 		<dir minversion="18.0" maxversion="18.9.9">
 			<info compressed="false">https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/leia/zips/addons.xml</info>
@@ -16,6 +16,11 @@
 			<info compressed="false">https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/nexus/zips/addons.xml</info>
 			<checksum>https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/nexus/zips/addons.xml.md5</checksum>
 			<datadir zip="true">https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/nexus/zips/</datadir>
+		</dir>
+		<dir minversion="21" maxversion="21.9.9">
+			<info compressed="false">https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/omega/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/omega/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/SerpentDrago/repository.auramod.aio/master/repo/omega/zips/</datadir>
 		</dir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
@@ -123,9 +128,9 @@
 	</extension>
 </addon>
 
-<addon id="skin.auramod" version="2.0.2" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="skyfsza,inb4after,SerpentDrago">
+<addon id="skin.auramod" version="2.0.3" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="skyfsza,inb4after,SerpentDrago">
     <requires>
-        <import addon="xbmc.gui" version="5.16.0"/>
+        <import addon="xbmc.gui" version="5.17.0"/>
         <import addon="script.skin.helper.service" version="1.1.24"/>
         <import addon="script.skin.helper.widgets" version="1.0.0"/>
         <import addon="script.skinshortcuts" version="1.0.20"/>
@@ -156,6 +161,8 @@
             <screenshot>resources/screenshot-05.jpg</screenshot>
         </assets>
         <news>
+            v2.0.3
+            -Increase xbmc.gui version for Omega
             v2.0.2
             -Fix missing Timers.xml log warning
             -Fix deprecated Player.DisplayAfterSeek
