@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addon id="skin.auramod" version="2.0.3" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="skyfsza,inb4after,SerpentDrago">
+<addon id="skin.auramod" version="2.0.4" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="skyfsza,inb4after,SerpentDrago">
     <requires>
         <import addon="xbmc.gui" version="5.17.0"/>
         <import addon="script.skin.helper.service" version="1.1.24"/>
@@ -32,6 +32,10 @@
             <screenshot>resources/screenshot-05.jpg</screenshot>
         </assets>
         <news>
+            v2.0.4
+            -Remove More... widget item for Netflix Info "Cast and More" lists
+            -Remove deprecated See More... widget item
+            -Remove deprecated Favourites dialog
             v2.0.3
             -Increase xbmc.gui version for Omega
             v2.0.2
