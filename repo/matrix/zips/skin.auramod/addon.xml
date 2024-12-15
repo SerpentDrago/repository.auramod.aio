@@ -33,8 +33,8 @@
         </assets>
         <news>
             v2.0.0
+            -Fix widgetPath is not defined for disabled widgets
             -Fix Netflix Info "Cast and More" clearlogo image fallbacks
-            -Fix episode thumb artwork priority
             -Fix Aura Home TMDBHelper widget label
             -Improve Aura Home LandscapeWide widget
             --Remove widget item title label
